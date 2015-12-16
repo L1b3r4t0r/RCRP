@@ -227,7 +227,6 @@ public OnPlayerCommandText(playerid, cmdtext[])
 	return 0;
 }
 
-
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
 	return 1;
