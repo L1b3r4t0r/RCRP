@@ -356,8 +356,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
         {
           case 0:
           {
-			SendClientMessage(playerid, COLOR_YELLOW, "You have selected City Hall");
-		   	SetPlayerCheckpoint(playerid, -206.2056, 1118.9186, 20.2590, 3.0);// City hall
+						SendClientMessage(playerid, COLOR_YELLOW, "You have selected City Hall");
+		   			SetPlayerCheckpoint(playerid, -206.2056, 1118.9186, 20.2590, 3.0);// City hall
           }
           case 1:
           {
@@ -373,24 +373,64 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
           {
             SendClientMessage(playerid, COLOR_YELLOW, "You have selected College");
             SetPlayerCheckpoint(playerid, 110.2725, 1058.7499, 13.6154, 3.0);// College
-		  }
-          case 4:
-		  {
-		    SendClientMessage(playerid, COLOR_YELLOW, "You have selected Dealership");
-          	SetPlayerCheckpoint(playerid, 177.0127, 1183.2480, 14.7578, 3.0);//Dealership
-		  }
-		  case 5:
-		  {
-		    SendClientMessage(playerid, COLOR_YELLOW, "You have selected the trucking depot");
- 			SetPlayerCheckpoint(playerid, 584.6690, 1209.3134, 12.2333, 3.0);//Trucking depot
-	      }
-		  case 6:
-		  {
-		    SendClientMessage(playerid, COLOR_YELLOW, "You have selected the FedEx runway runway");
-		    SetPlayerCheckpoint(playerid, 346.3111, 1797.5247, 18.3872, 3.0);//FedEx Runway
-  		  }
-        }
-      }
+		  		}
+        	case 4:
+		  		{
+		    		SendClientMessage(playerid, COLOR_YELLOW, "You have selected Dealership");
+      			SetPlayerCheckpoint(playerid, 177.0127, 1183.2480, 14.7578, 3.0);//Dealership
+		  		}
+		  		case 5:
+		  		{
+		    		SendClientMessage(playerid, COLOR_YELLOW, "You have selected the trucking depot");
+ 						SetPlayerCheckpoint(playerid, 584.6690, 1209.3134, 12.2333, 3.0);//Trucking depot
+	      	}
+		  		case 6:
+		  		{
+		    		SendClientMessage(playerid, COLOR_YELLOW, "You have selected the FedEx runway runway");
+		    		SetPlayerCheckpoint(playerid, 346.3111, 1797.5247, 18.3872, 3.0);//FedEx Runway
+  				}
+    		}
+    	}
+			case DIALOG_WEAPONS:
+   		{
+    		switch (listitem)
+        {
+				 	case 0:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen an AK47");
+				 		GivePlayerWeapon(playerid, AK47, 1000);
+				 	}
+				 	case 1:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen an M4");
+				 		GivePlayerWeapon(playerid, M4, 1000);
+				 	}
+				 	case 2:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen a knife");
+				 		GivePlayerWeapon(playerid, KNIFE, 1);
+				 	}
+				 case 3:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen a TEC9");
+				 		GivePlayerWeapon(playerid, TEC9, 1000);
+				 	}
+				 	case 4:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen a Desert eagle");
+				 		GivePlayerWeapon(playerid, DESERT_EAGLE, 1000);
+				 	}
+				 	case 5:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen a shotgun");
+				 		GivePlayerWeapon(playerid, SHOTGUN, 1000);
+				 	}
+				 	case 6:
+				 	{
+				 		SendClientMessage(playerid, COLOR_RED, "You have choosen a Rifle");
+				 		GivePlayerWeapon(playerid, RIFLE, 1000);
+				 	}
+			}
     }
   }
 }
