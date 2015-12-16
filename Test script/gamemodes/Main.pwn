@@ -113,7 +113,7 @@ public OnPlayerDisconnect(playerid, reason)
 {
 	new pName[MAX_PLAYER_NAME];
 	GetPlayerName(playerid, pName, sizeof(pName));
-	new pubMessage[100];
+	new pubMessage[68];
 	format(pubMessage, sizeof pubMessage, "%s has left the server. Good bye!", pName);
 	SendClientMessageToAll(COLOR_WHITE, pubMessage);
 	return 1;
