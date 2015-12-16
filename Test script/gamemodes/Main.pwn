@@ -369,8 +369,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
           }
           case 2:
           {
-            SendClientMessage(playerid, COLOR_YELLOW, "You have selected FedEx");
-            SetPlayerCheckpoint(playerid, -145.0520, 1081.1747, 19.7500, 3.0);// FedEx depot
+          	SendClientMessage(playerid, COLOR_YELLOW, "You have selected FedEx");
+          	SetPlayerCheckpoint(playerid, -145.0520, 1081.1747, 19.7500, 3.0);// FedEx depot
           }
           case 3:
           {
@@ -379,12 +379,12 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		  		}
         	case 4:
 		  		{
-		    		SendClientMessage(playerid, COLOR_YELLOW, "You have selected Dealership");
+						SendClientMessage(playerid, COLOR_YELLOW, "You have selected Dealership");
 						SetPlayerCheckpoint(playerid, 177.0127, 1183.2480, 14.7578, 3.0);//Dealership
 		  		}
 		  		case 5:
 		  		{
-		    		SendClientMessage(playerid, COLOR_YELLOW, "You have selected the trucking depot");
+						SendClientMessage(playerid, COLOR_YELLOW, "You have selected the trucking depot");
 						SetPlayerCheckpoint(playerid, 584.6690, 1209.3134, 12.2333, 3.0);//Trucking depot
 	      	}
 		  		case 6:
@@ -398,7 +398,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
    		{
     		switch (listitem)
         {
-				 	case 7:
+				 	case 0:
 				 	{
 				 		SendClientMessage(playerid, COLOR_RED, "You have choosen an AK47");
 				 		GivePlayerWeapon(playerid, AK47, 1000);
