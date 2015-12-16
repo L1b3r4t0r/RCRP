@@ -45,12 +45,14 @@ main()
 	return 1;
 }
 
+new pickup_ak; // Create a variable to store the pickup ID in
 
 public OnGameModeInit()
 {
 	// Don't use these lines if it's a filterscript
 	SetGameModeText("test server");
 	AddPlayerClass(0, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 24, 0, 0, 0, 0);
+	pickup_ak = CreatePickup(355, 2, -213.0206, 991.2901, 19.5029, 0);
 	return 1;
 }
 
@@ -284,6 +286,10 @@ public OnPlayerObjectMoved(playerid, objectid)
 
 public OnPlayerPickUpPickup(playerid, pickupid)
 {
+	if(pickupid == pickup_ak)
+	{
+		GivePlayerWeapon(playerid, AK47, 1000);
+	}
 	return 1;
 }
 
