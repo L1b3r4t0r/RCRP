@@ -202,7 +202,13 @@ public OnPlayerCommandText(playerid, cmdtext[])
 	if (strcmp("/gps", cmdtext, true, 10) == 0)
 	{
 		// Open dialog and selection menu
-		ShowPlayerDialog(playerid, DIALOG_GPS, DIALOG_STYLE_LIST, "gps", "", "Select", "Cancel");
+		ShowPlayerDialog(playerid, DIALOG_GPS, DIALOG_STYLE_LIST, "gps",
+		"Cityhall\n\
+		Bank\n\
+		Police Station\n\
+		Airport\n\
+		"
+		, "Select", "Cancel");
 		return 1;
 	}
 }
