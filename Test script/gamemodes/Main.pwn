@@ -93,7 +93,7 @@ public OnPlayerConnect(playerid)
 	// Color the name red when player is not spawned.
 	SetPlayerColor(playerid, COLOR_RED);
 	// Send a message to the connect client only to greet
-	SendClientMessage (playerid, 0xFFFFFF, "Welcome to our test server, happy testing!");
+	SendClientMessage (playerid, COLOR_WHITE, "Welcome to our test server, happy testing!");
 	// Define a varible to hold the player nickname
 	new pName[MAX_PLAYER_NAME];
 	// Get the player nickname using the provided id and dump it into the pName variable
@@ -104,13 +104,18 @@ public OnPlayerConnect(playerid)
 	// Number comes from characters multiplied by 2
 	format(pubMessage, sizeof pubMessage, "%s has joined the server. Welcome!", pName);
 	// Publicy display the pubMessage contents to the server
-	SendClientMessageToAll(0xFFFFFF, pubMessage);
+	SendClientMessageToAll(COLOR_WHITE, pubMessage);
 	// Return a success code
 	return 1;
 }
 
 public OnPlayerDisconnect(playerid, reason)
 {
+	new pName[MAX_PLAYER_NAME];
+	GetPlayerName(playerid, pName, sizeof(pName));
+	new pubMessage[100];
+	format(pubMessage, sizeof pubMessage, "%s has left the server. Good bye!", pName);
+	SendClientMessageToAll(COLOR_WHITE, pubMessage);
 	return 1;
 }
 
