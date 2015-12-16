@@ -209,6 +209,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 		College\n\
 		Dealership\n\
 		Trucking depot\n\
+		FedEx\n\
 		"
 		, "Select", "Cancel");
 		return 1;
@@ -355,28 +356,39 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
         {
           case 0:
           {
+			SendClientMessage(playerid, COLOR_YELLOW, "You have selected City Hall");
 		   	SetPlayerCheckpoint(playerid, -206.2056, 1118.9186, 20.2590, 3.0);// City hall
           }
           case 1:
           {
+            SendClientMessage(playerid, COLOR_YELLOW, "You have selected Bank");
             SetPlayerCheckpoint(playerid, -176.7930, 1111.7858, 19.7422, 3.0);// Bank
           }
           case 2:
           {
+            SendClientMessage(playerid, COLOR_YELLOW, "You have selected FedEx");
             SetPlayerCheckpoint(playerid, -145.0520, 1081.1747, 19.7500, 3.0);// FedEx depot
           }
           case 3:
           {
+            SendClientMessage(playerid, COLOR_YELLOW, "You have selected College");
             SetPlayerCheckpoint(playerid, 110.2725, 1058.7499, 13.6154, 3.0);// College
 		  }
           case 4:
 		  {
+		    SendClientMessage(playerid, COLOR_YELLOW, "You have selected Dealership");
           	SetPlayerCheckpoint(playerid, 177.0127, 1183.2480, 14.7578, 3.0);//Dealership
 		  }
 		  case 5:
 		  {
+		    SendClientMessage(playerid, COLOR_YELLOW, "You have selected the trucking depot");
  			SetPlayerCheckpoint(playerid, 584.6690, 1209.3134, 12.2333, 3.0);//Trucking depot
 	      }
+		  case 6:
+		  {
+		    SendClientMessage(playerid, COLOR_YELLOW, "You have selected the FedEx runway runway");
+		    SetPlayerCheckpoint(playerid, 346.3111, 1797.5247, 18.3872, 3.0);//FedEx Runway
+  		  }
         }
       }
     }
