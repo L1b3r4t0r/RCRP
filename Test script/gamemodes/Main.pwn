@@ -179,10 +179,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
 	 	SetPlayerHealth(playerid, 10000);
 	 	SetPlayerColor(playerid, COLOR_BLUE);
 	 	SendClientMessage(playerid, COLOR_WHITE, "Godmode activated");
-	  return 1;
+ 		return 1;
 	}
 
-  if (strcmp("/respawn", cmdtext, true, 10) == 0)
+  	if (strcmp("/respawn", cmdtext, true, 10) == 0)
 	{
 		SetPlayerVirtualWorld(playerid, 0);
 		SetPlayerHealth(playerid, 100.0);
@@ -191,9 +191,9 @@ public OnPlayerCommandText(playerid, cmdtext[])
 		ResetPlayerWeapons(playerid);
 		return 1;
 	}
-  if (strcmp("/commands", cmdtext, true, 10) == 0)
+ 	if (strcmp("/commands", cmdtext, true, 10) == 0)
 	{
-		SendClientMessage(playerid, COLOR_WHITE, "/FC (Teleports to Fort Carson)");
+	SendClientMessage(playerid, COLOR_WHITE, "/FC (Teleports to Fort Carson)");
     SendClientMessage(playerid, COLOR_WHITE, "/god (enables godmode");
     SendClientMessage(playerid, COLOR_WHITE, "/weapons (gives you weapons");
     SendClientMessage(playerid, COLOR_WHITE, "/respawn (respawn");
@@ -205,12 +205,15 @@ public OnPlayerCommandText(playerid, cmdtext[])
 		ShowPlayerDialog(playerid, DIALOG_GPS, DIALOG_STYLE_LIST, "gps",
 		"Cityhall\n\
 		Bank\n\
-		Police Station\n\
-		Airport\n\
+		FedEx depot\n\
+		College\n\
+		Dealership\n\
+		Trucking depot\n\
 		"
 		, "Select", "Cancel");
 		return 1;
 	}
+	return 0;
 }
 
 
@@ -352,20 +355,28 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
         {
           case 0:
           {
-						// Put you waypoint code here
+		   	SetPlayerCheckpoint(playerid, -206.2056, 1118.9186, 20.2590, 3.0);// City hall
           }
           case 1:
           {
-            // Put you waypoint code here
+            SetPlayerCheckpoint(playerid, -176.7930, 1111.7858, 19.7422, 3.0);// Bank
           }
           case 2:
           {
-            // Put you waypoint code here
+            SetPlayerCheckpoint(playerid, -145.0520, 1081.1747, 19.7500, 3.0);// FedEx depot
           }
           case 3:
           {
-            // Put you waypoint code here
-          }
+            SetPlayerCheckpoint(playerid, 110.2725, 1058.7499, 13.6154, 3.0);// College
+		  }
+          case 4:
+		  {
+          	SetPlayerCheckpoint(playerid, 177.0127, 1183.2480, 14.7578, 3.0);//Dealership
+		  }
+		  case 5:
+		  {
+ 			SetPlayerCheckpoint(playerid, 584.6690, 1209.3134, 12.2333, 3.0);//Trucking depot
+	      }
         }
       }
     }
