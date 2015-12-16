@@ -123,6 +123,7 @@ public OnPlayerDisconnect(playerid, reason)
 
 public OnPlayerSpawn(playerid)
 {
+	SetPlayerHealth(playerid, 100);
 	SetPlayerColor(playerid, COLOR_WHITE);
 	GivePlayerMoney(playerid, 10000);
 	SendClientMessage(playerid, COLOR_GREEN, "Enjoy your $10.000");
@@ -131,7 +132,7 @@ public OnPlayerSpawn(playerid)
 
 public OnPlayerDeath(playerid, killerid, reason)
 {
-
+	GivePlayerMoney(playerid, -10000);
 	return 1;
 }
 
@@ -186,17 +187,17 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
  	if (strcmp("/god", cmdtext, true, 10) == 0)
 	{
-		new Float:health;
+		new Float:health = 0;
 		GetPlayerHealth(playerid, health);
-		if (health >= 100.0)
+		if (health <= 100.0)
 		{
-			SetPlayerHealth(playerid, 10000);
+			SetPlayerHealth(playerid, 10000.0);
 		 	SetPlayerColor(playerid, COLOR_BLUE);
 		 	SendClientMessage(playerid, COLOR_WHITE, "Godmode activated");
 		}
-		else if (health <100.0)
+		else if (health >= 100.0)
 		{
-			SetPlayerHealth(playerid, 100);
+			SetPlayerHealth(playerid, 100.0);
 			SetPlayerColor(playerid, COLOR_WHITE);
 			SendClientMessage(playerid, COLOR_WHITE, "Godmode deactivated");
 		}
