@@ -1,10 +1,10 @@
 //==============================================================================
 //          -- > Database Information
 //==============================================================================
-#define SQL_HOST "127.0.0.1"
-#define SQL_USER "USERNAME"
-#define SQL_PASS "PASSWORD"
-#define SQL_DB "DATABASE"
+#define SQL_HOST "127.0.0.1:3306"
+#define SQL_USER "root"
+#define SQL_PASS ""
+#define SQL_DB "rcrp"
 
 
 new SQL_CONNECTION;
