@@ -63,8 +63,11 @@ public OnPlayerActionChange(playerid, oldaction, newaction)
 {
     if (newaction == PLAYER_ACTION_SHOOTING)
     {
-			if (isPlayerWithinBounds(playerid, -385.3699, 245.2354, 1319.6, 957.5858))
+			if (isPlayerWithinBounds(playerid, 1121.7236, 1537.8350, 2858.6204, 2711.5081))
 			{
+				SendClientMessage(playerid, COLOR_WHITE, "A 911 call has been dispatched for shots fired");
+				return 1;
+				/*
 				if (getFlagValue())
 				{
 					SendClientMessage(playerid, COLOR_WHITE, "A 911 call has been dispatched for shots fired");
@@ -74,7 +77,7 @@ public OnPlayerActionChange(playerid, oldaction, newaction)
 				{
 					return 1;
 				}
-				return 1;
+				return 1;*/
 			}
     }
     else if (newaction == PLAYER_ACTION_SKYDIVING)
@@ -166,8 +169,15 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
 	if (strcmp("/fc", cmdtext, true, 10) == 0)
 	{
-		SetPlayerPos(playerid, -211.3621, 1001.3024,19.6920);
+		SetPlayerPos(playerid, -211.3621, 1001.3024, 19.6920);
 		SendClientMessage(playerid, COLOR_WHITE, "Welcome to Fort Carson");
+		return 1;
+	}
+
+	if (strcmp("/gc", cmdtext, true, 10) == 0)
+	{
+		SetPlayerPos(playerid, 1324.0190, 2794.2795, 10.8203);
+		SendClientMessage(playerid, COLOR_WHITE, "Welcome to golfclub");
 		return 1;
 	}
 
