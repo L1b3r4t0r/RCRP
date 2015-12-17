@@ -1,8 +1,9 @@
 new bool:flag = false;
 // Set the flag value can be overwritten with a passed boolean as argument
-public setFlagValue(value[] = "none")
+stock setFlagValue()
 {
-  if (value != "none")
+  argNum = numargs() - 1;
+  if (argNum != 0)
   {
     if (flag == true)
     {
@@ -20,7 +21,7 @@ public setFlagValue(value[] = "none")
   return 1;
 }
 // Gets the flag vallue as in a OOP setter getter model
-public getFlagValue()
+stock getFlagValue()
 {
   if(flag == true)
   {
