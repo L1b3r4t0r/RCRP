@@ -1,5 +1,5 @@
 // Copyrigh (c) 2015 Matheus Silva and Bart
-public isPlayerWithinBounds(playerid, x1, x2, y1, y2)
+stock isPlayerWithinBounds(playerid, x1, x2, y1, y2)
 {
   new Float:x, Float:y, Float:z;
   GetPlayerPos(playerid, x, y, z);
@@ -12,3 +12,5 @@ public isPlayerWithinBounds(playerid, x1, x2, y1, y2)
     return 0;
   }
 }
+
+forward isPlayerWithinBounds();
