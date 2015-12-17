@@ -51,7 +51,8 @@ public OnGameModeInit()
 {
 	// Don't use these lines if it's a filterscript
 	SetGameModeText("test server");
-	AddPlayerClass(0, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 24, 0, 0, 0, 0);
+	AddPlayerClass(0, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);
+	AddPlayerClass(100, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);
 	pickup_ak = CreatePickup(355, 2, -213.0206, 991.2901, 19.5029, 0);
 	return 1;
 }
@@ -85,29 +86,22 @@ public OnGameModeExit()
 public OnPlayerRequestClass(playerid, classid)
 {
 	SetPlayerPos(playerid, 1958.3783, 1343.1572, 15.3746);
-	SetPlayerCameraPos(playerid, 1958.3783, 1343.1572, 15.3746);
+	ApplyAnimation(playerid, "ON_LOOKERS", "wave_loop", 4.0, 1, 0, 0, 0, 0); //
+	SetPlayerCameraPos(playerid, 1955.2679, 1343.9951, 15.3746);
 	SetPlayerCameraLookAt(playerid, 1958.3783, 1343.1572, 15.3746);
+	SetPlayerFacingAngle(playerid, 88);
 	return 1;
 }
 
 public OnPlayerConnect(playerid)
 {
-	// Color the name red when player is not spawned.
 	SetPlayerColor(playerid, COLOR_RED);
-	// Send a message to the connect client only to greet
 	SendClientMessage (playerid, COLOR_WHITE, "Welcome to our test server, happy testing!");
-	// Define a varible to hold the player nickname
 	new pName[MAX_PLAYER_NAME];
-	// Get the player nickname using the provided id and dump it into the pName variable
 	GetPlayerName(playerid, pName, sizeof(pName));
-	// Creates a 64 bytes lenght string to hold the public message
 	new pubMessage[64];
-	// Format the public message to for public display on the server and dump it into pubMessage variable
-	// Number comes from characters multiplied by 2
 	format(pubMessage, sizeof pubMessage, "%s has joined the server. Welcome!", pName);
-	// Publicy display the pubMessage contents to the server
 	SendClientMessageToAll(COLOR_WHITE, pubMessage);
-	// Return a success code
 	return 1;
 }
 
@@ -187,7 +181,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 
  	if (strcmp("/god", cmdtext, true, 10) == 0)
 	{
-		new Float:health = 0;
+		new Float:health;
 		GetPlayerHealth(playerid, health);
 		if (health <= 100.0)
 		{
@@ -201,11 +195,10 @@ public OnPlayerCommandText(playerid, cmdtext[])
 			SetPlayerColor(playerid, COLOR_WHITE);
 			SendClientMessage(playerid, COLOR_WHITE, "Godmode deactivated");
 		}
-
  		return 1;
 	}
 
-  	if (strcmp("/respawn", cmdtext, true, 10) == 0)
+	if (strcmp("/respawn", cmdtext, true, 10) == 0)
 	{
 		SetPlayerVirtualWorld(playerid, 0);
 		SetPlayerHealth(playerid, 100.0);
@@ -214,14 +207,16 @@ public OnPlayerCommandText(playerid, cmdtext[])
 		ResetPlayerWeapons(playerid);
 		return 1;
 	}
+
  	if (strcmp("/commands", cmdtext, true, 10) == 0)
 	{
-	SendClientMessage(playerid, COLOR_WHITE, "/FC (Teleports to Fort Carson)");
-    SendClientMessage(playerid, COLOR_WHITE, "/god (enables godmode");
-    SendClientMessage(playerid, COLOR_WHITE, "/weapons (gives you weapons");
-    SendClientMessage(playerid, COLOR_WHITE, "/respawn (respawn");
-    return 1;
+		SendClientMessage(playerid, COLOR_WHITE, "/FC (Teleports to Fort Carson)");
+		SendClientMessage(playerid, COLOR_WHITE, "/god (enables godmode)");
+		SendClientMessage(playerid, COLOR_WHITE, "/weapons (gives you weapons");
+		SendClientMessage(playerid, COLOR_WHITE, "/respawn (respawn");
+		return 1;
 	}
+
 	if (strcmp("/gps", cmdtext, true, 10) == 0)
 	{
 		// Open dialog and selection menu
