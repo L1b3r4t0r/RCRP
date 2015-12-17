@@ -182,20 +182,23 @@ public OnPlayerCommandText(playerid, cmdtext[])
  	if (strcmp("/god", cmdtext, true, 10) == 0)
 	{
 		new Float:health;
+		new Phealth [64];
 		GetPlayerHealth(playerid, health);
 		if (health <= 100.0)
 		{
-			GetPlayerHealth(playerid, health);
 			SetPlayerHealth(playerid, 10000.0);
 		 	SetPlayerColor(playerid, COLOR_BLUE);
 		 	SendClientMessage(playerid, COLOR_WHITE, "Godmode activated");
+			format(Phealth, sizeof Phealth, "Your health is %f", health);
+			SendClientMessage(playerid, COLOR_WHITE, Phealth);
 		}
-		else if (health >= 100.0)
+		else if (health > 100.0)
 		{
-			GetPlayerHealth(playerid, health);
 			SetPlayerHealth(playerid, 100.0);
 			SetPlayerColor(playerid, COLOR_WHITE);
 			SendClientMessage(playerid, COLOR_WHITE, "Godmode deactivated");
+			format(Phealth, sizeof Phealth, "Your health is %f", health);
+			SendClientMessage(playerid, COLOR_WHITE, Phealth);
 		}
  		return 1;
 	}
