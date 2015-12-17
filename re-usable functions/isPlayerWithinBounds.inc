@@ -1,3 +1,4 @@
+// Copyrigh (c) 2015 Matheus Silva and Bart
 stock isPlayerWithinBounds(playerid, x1, x2, y1, y2)
 {
   new Float:x, Float:y, Float:z;
